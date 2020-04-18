@@ -1,0 +1,7 @@
+_extends: .github
+repository:
+  name: remark-remove-greenkeeper-badge
+  description: remark plugin for removing a greenkeeper badge
+  homepage: 'https://npm.im/remark-remove-greenkeeper-badge'
+  private: false
+  topics: remark-plugin
