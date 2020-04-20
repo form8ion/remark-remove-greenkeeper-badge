@@ -31,6 +31,7 @@
     "lint:sensitive": "ban",
     "lint:travis": "travis-lint .travis.yml",
     "lint:gherkin": "gherkin-lint",
+    "pretest:integration:base": "npm run build:js",
     "test:integration": "run-s 'test:integration:base -- --profile noWip'",
     "test:integration:base": "DEBUG=any cucumber-js test/integration --profile base",
     "test:integration:debug": "DEBUG=test run-s test:integration",
@@ -76,5 +77,8 @@
     "rollup-plugin-auto-external": "2.0.0",
     "sinon": "9.0.2",
     "travis-lint": "1.0.0"
+  },
+  "dependencies": {
+    "unist-util-remove": "^2.0.0"
   }
 }
