@@ -1,4 +1,5 @@
 # remark-remove-greenkeeper-badge
+
 [remark](https://github.com/remarkjs/remark) [plugin](https://github.com/remarkjs/remark/blob/master/doc/plugins.md)
 for removing a [greenkeeper](https://greenkeeper.io/) badge
 
@@ -35,8 +36,28 @@ $ npm install remark-remove-greenkeeper-badge --save-prod
 
 ### Example
 
+#### Import
+
 ```javascript
+import fs from 'fs';
+import remark from 'remark';
 import remarkRemoveGreenkeeperBadge from 'remark-remove-greenkeeper-badge';
+```
+
+#### Execute
+
+```javascript
+remark()
+  .use(remarkRemoveGreenkeeperBadge)
+  .process(
+    `# project-name
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/your-account/project-name.svg)](https://greenkeeper.io/)
+`,
+    (err, file) => {
+      fs.writeFileSync(`${process.cwd()}/README.md`, file);
+    }
+  );
 ```
 
 ## Contributing
