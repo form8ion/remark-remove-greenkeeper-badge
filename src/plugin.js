@@ -1,7 +1,10 @@
 import remove from '../thirdparty-wrappers/unist-util-remove';
+import createReferencedBadgePredicate from './referenced-badge-predicate';
+import {GREENKEEPER_URL} from './constants';
 
 export default function () {
-  return function transformer(node) {
-    remove(node, {type: 'link', url: 'https://greenkeeper.io/'});
+  return function transformer(tree) {
+    remove(tree, {type: 'link', url: GREENKEEPER_URL});
+    remove(tree, createReferencedBadgePredicate(tree));
   };
 }

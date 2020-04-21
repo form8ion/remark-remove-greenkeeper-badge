@@ -7,7 +7,9 @@ When('a node is processed', async function () {
 
 ${this.badgeGroup.join('\n')}
 
-${this.normalLink}
+${this.normalLink}${this.badgeDefinitions.length ? `
+
+${this.badgeDefinitions.join('\n\n')}` : ''}
 `;
 
   remark()
