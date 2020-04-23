@@ -26,6 +26,8 @@ suite('plugin', () => {
     plugin()(tree);
 
     assert.calledWith(remove.default, tree, {type: 'link', url: GREENKEEPER_URL});
+    assert.calledWith(remove.default, tree, {type: 'definition', identifier: 'greenkeeper-badge'});
+    assert.calledWith(remove.default, tree, {type: 'definition', identifier: 'greenkeeper-link'});
     assert.calledWith(remove.default, tree, referencedBadgePredicate);
   });
 });
