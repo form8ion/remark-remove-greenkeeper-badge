@@ -80,7 +80,7 @@
     "travis-lint": "1.0.0"
   },
   "dependencies": {
-    "mdast-util-definitions": "^2.0.1",
+    "mdast-util-definitions": "^4.0.0",
     "unist-util-remove": "^2.0.0",
     "unist-util-visit": "^2.0.2"
   }
