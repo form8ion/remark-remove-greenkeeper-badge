@@ -18,7 +18,7 @@ remark()
 [![Greenkeeper badge](https://badges.greenkeeper.io/your-account/project-name.svg)](https://greenkeeper.io/)
 `,
     (err, file) => {
-      fs.writeFileSync(`${process.cwd()}/README.md`, file);
+      fs.writeFileSync(`${process.cwd()}/README.md`, `${file}`);
     }
   );
 
