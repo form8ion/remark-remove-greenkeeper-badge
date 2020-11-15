@@ -60,7 +60,7 @@ suite('merge newlines in a paragraph', () => {
     const node = {...any.simpleObject(), type: any.word(), value: '\n'};
     const parent = {...any.simpleObject(), children: [...originalChildren], type: 'paragraph'};
 
-    mergeNewlines(node, index, parent);
+    mergeNewlines(node, index - 1, parent);
 
     assert.deepEqual(parent.children, originalChildren);
   });
@@ -69,7 +69,7 @@ suite('merge newlines in a paragraph', () => {
     const node = {...any.simpleObject(), type: 'text', value: any.word()};
     const parent = {...any.simpleObject(), children: [...originalChildren], type: 'paragraph'};
 
-    mergeNewlines(node, index, parent);
+    mergeNewlines(node, index - 1, parent);
 
     assert.deepEqual(parent.children, originalChildren);
   });
