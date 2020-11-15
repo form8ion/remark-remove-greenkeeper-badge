@@ -29,7 +29,6 @@
     "generate:md": "remark . --output",
     "pregenerate:md": "npm run build",
     "lint:sensitive": "ban",
-    "lint:travis": "travis-lint .travis.yml",
     "lint:gherkin": "gherkin-lint",
     "pretest:integration:base": "npm run build:js",
     "test:integration": "run-s 'test:integration:base -- --profile noWip'",
@@ -76,8 +75,7 @@
     "rimraf": "3.0.2",
     "rollup": "2.33.1",
     "rollup-plugin-auto-external": "2.0.0",
-    "sinon": "9.2.1",
-    "travis-lint": "1.0.0"
+    "sinon": "9.2.1"
   },
   "dependencies": {
     "mdast-util-definitions": "^4.0.0",
