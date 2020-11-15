@@ -1,6 +1,7 @@
 import {When} from 'cucumber';
 import remark from 'remark';
-import remarkRemoveGreenkeeperBadge from '../../../../lib/index.cjs';
+// eslint-disable-next-line import/no-extraneous-dependencies,import/no-unresolved
+import remarkRemoveGreenkeeperBadge from 'remark-remove-greenkeeper-badge';
 
 When('a node is processed', async function () {
   const existingContent = `# some-project
