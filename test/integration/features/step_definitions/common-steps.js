@@ -1,4 +1,4 @@
-import {When} from 'cucumber';
+import {When} from '@cucumber/cucumber';
 import remark from 'remark';
 // eslint-disable-next-line import/no-extraneous-dependencies,import/no-unresolved
 import remarkRemoveGreenkeeperBadge from 'remark-remove-greenkeeper-badge';
