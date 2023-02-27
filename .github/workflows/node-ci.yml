@@ -3,9 +3,8 @@ name: Node.js CI
   push:
     branches:
       - master
-      - alpha
       - beta
-      - 'renovate/**'
+      - renovate/**
   pull_request:
     types:
       - opened
@@ -21,41 +20,32 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3
         with:
-          node-version-file: '.nvmrc'
+          node-version-file: .nvmrc
           cache: npm
       - run: npm clean-install
       - run: npm test
-      - name: Upload coverage data to Codecov
-        run: 'npm run coverage:report'
+      - uses: codecov/codecov-action@v3
   verify-matrix:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [12, 14, 16]
+        node:
+          - 12
+          - 14
+          - 16
     steps:
       - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
       - name: Setup node
         uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3
         with:
-          node-version: '${{ matrix.node }}'
           cache: npm
+          node-version: ${{ matrix.node }}
       - run: npm clean-install
       - run: npm test
   release:
     needs:
       - verify
       - verify-matrix
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
-      - name: Setup node
-        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3
-        with:
-          node-version-file: '.nvmrc'
-          cache: npm
-      - run: npm clean-install
-      - name: semantic-release
-        run: npx semantic-release
-        env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-          NPM_TOKEN: '${{ secrets.NPM_PUBLISH_TOKEN }}'
+    uses: form8ion/.github/.github/workflows/release-package.yml@master
+    secrets:
+      NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
