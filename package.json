@@ -20,7 +20,7 @@
     "lint:js": "eslint . --cache",
     "lint:md": "remark . --frail",
     "generate:md": "remark . --output",
-    "pregenerate:md": "npm run build",
+    "pregenerate:md": "run-s build",
     "lint:sensitive": "ban",
     "lint:gherkin": "gherkin-lint",
     "pretest:integration:base": "preview",
@@ -36,7 +36,7 @@
     "watch": "run-s 'build:js -- --watch'",
     "prepack": "run-s build",
     "test:unit": "cross-env NODE_ENV=test c8 run-s test:unit:base",
-    "test:unit:base": "DEBUG=any mocha 'src/**/*-test.js'",
+    "test:unit:base": "DEBUG=any vitest run",
     "lint:peer": "npm ls >/dev/null",
     "prepare": "husky install"
   },
@@ -60,7 +60,6 @@
     "@form8ion/commitlint-config": "1.0.47",
     "@form8ion/eslint-config": "5.0.28",
     "@form8ion/eslint-config-cucumber": "1.4.1",
-    "@form8ion/eslint-config-mocha": "2.0.3",
     "@form8ion/remark-lint-preset": "1.0.13",
     "@travi/any": "2.1.8",
     "ban-sensitive-files": "1.9.18",
@@ -70,8 +69,8 @@
     "cz-conventional-changelog": "3.3.0",
     "gherkin-lint": "4.2.2",
     "husky": "8.0.3",
+    "jest-when": "3.5.2",
     "lockfile-lint": "4.10.1",
-    "mocha": "10.2.0",
     "mock-fs": "5.2.0",
     "npm-run-all": "4.1.5",
     "package-preview": "4.0.0",
@@ -82,6 +81,6 @@
     "rimraf": "4.4.1",
     "rollup": "2.79.1",
     "rollup-plugin-auto-external": "2.0.0",
-    "sinon": "15.0.3"
+    "vitest": "0.29.8"
   }
 }
