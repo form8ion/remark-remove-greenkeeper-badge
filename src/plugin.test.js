@@ -1,18 +1,19 @@
+import {remove} from 'unist-util-remove';
+import {visit} from 'unist-util-visit';
+
 import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest';
 import any from '@travi/any';
 import {when} from 'jest-when';
 
-import * as referencedBadgePredicateFactory from './referenced-badge-predicate';
-import * as remove from '../thirdparty-wrappers/unist-util-remove';
-import * as visit from '../thirdparty-wrappers/unist-util-visit';
-import {GREENKEEPER_URL} from './constants';
-import plugin from './plugin';
-import mergeNewlines from './merge-newlines-in-paragraph';
+import * as referencedBadgePredicateFactory from './referenced-badge-predicate.js';
+import {GREENKEEPER_URL} from './constants.js';
+import mergeNewlines from './merge-newlines-in-paragraph.js';
+import plugin from './plugin.js';
 
 describe('plugin', () => {
   beforeEach(() => {
-    vi.mock('../thirdparty-wrappers/unist-util-remove');
-    vi.mock('../thirdparty-wrappers/unist-util-visit');
+    vi.mock('unist-util-remove');
+    vi.mock('unist-util-visit');
     vi.mock('./referenced-badge-predicate');
   });
 
@@ -27,10 +28,10 @@ describe('plugin', () => {
 
     plugin()(tree);
 
-    expect(remove.default).toHaveBeenCalledWith(tree, {type: 'link', url: GREENKEEPER_URL});
-    expect(remove.default).toHaveBeenCalledWith(tree, {type: 'definition', identifier: 'greenkeeper-badge'});
-    expect(remove.default).toHaveBeenCalledWith(tree, {type: 'definition', identifier: 'greenkeeper-link'});
-    expect(remove.default).toHaveBeenCalledWith(tree, referencedBadgePredicate);
-    expect(visit.default).toHaveBeenCalledWith(tree, {type: 'text', value: '\n'}, mergeNewlines);
+    expect(remove).toHaveBeenCalledWith(tree, {type: 'link', url: GREENKEEPER_URL});
+    expect(remove).toHaveBeenCalledWith(tree, {type: 'definition', identifier: 'greenkeeper-badge'});
+    expect(remove).toHaveBeenCalledWith(tree, {type: 'definition', identifier: 'greenkeeper-link'});
+    expect(remove).toHaveBeenCalledWith(tree, referencedBadgePredicate);
+    expect(visit).toHaveBeenCalledWith(tree, {type: 'text', value: '\n'}, mergeNewlines);
   });
 });

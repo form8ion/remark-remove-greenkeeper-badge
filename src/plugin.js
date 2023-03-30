@@ -1,8 +1,8 @@
-import remove from '../thirdparty-wrappers/unist-util-remove';
-import visit from '../thirdparty-wrappers/unist-util-visit';
-import createReferencedBadgePredicate from './referenced-badge-predicate';
-import mergeNewlines from './merge-newlines-in-paragraph';
-import {GREENKEEPER_URL} from './constants';
+import {remove} from 'unist-util-remove';
+import {visit} from 'unist-util-visit';
+import createReferencedBadgePredicate from './referenced-badge-predicate.js';
+import mergeNewlines from './merge-newlines-in-paragraph.js';
+import {GREENKEEPER_URL} from './constants.js';
 
 export default function () {
   return function transformer(tree) {

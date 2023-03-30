@@ -1,7 +1,7 @@
 import {describe, expect, it} from 'vitest';
 import any from '@travi/any';
 
-import mergeNewlines from './merge-newlines-in-paragraph';
+import mergeNewlines from './merge-newlines-in-paragraph.js';
 
 describe('merge newlines in a paragraph', () => {
   const originalChildren = any.listOf(any.simpleObject);

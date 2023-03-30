@@ -1,5 +1,6 @@
-import definitions from '../thirdparty-wrappers/mdast-util-definitions';
-import {GREENKEEPER_URL} from './constants';
+import {definitions} from 'mdast-util-definitions';
+
+import {GREENKEEPER_URL} from './constants.js';
 
 export default function (tree) {
   const getDefinitionByIdentifier = definitions(tree);
