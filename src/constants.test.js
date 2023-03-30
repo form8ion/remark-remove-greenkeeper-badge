@@ -1,5 +1,6 @@
 import {describe, expect, it} from 'vitest';
-import {GREENKEEPER_URL} from './constants';
+
+import {GREENKEEPER_URL} from './constants.js';
 
 describe('constants', () => {
   it('should define the greenkeeper url to match what is found in the real badges', () => {

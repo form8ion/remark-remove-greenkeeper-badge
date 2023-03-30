@@ -1,5 +1,7 @@
+import {remark} from 'remark';
+
 import {When} from '@cucumber/cucumber';
-import remark from 'remark';
+
 // eslint-disable-next-line import/no-extraneous-dependencies,import/no-unresolved
 import remarkRemoveGreenkeeperBadge from 'remark-remove-greenkeeper-badge';
 
@@ -13,11 +15,7 @@ ${this.normalLink}${this.badgeDefinitions.length ? `
 ${this.badgeDefinitions.join('\n\n')}` : ''}
 `;
 
-  remark()
+  this.resultingContent = await remark()
     .use(remarkRemoveGreenkeeperBadge)
-    .process(existingContent, (err, file) => {
-      if (err) throw err;
-
-      this.resultingContent = file.contents;
-    });
+    .process(existingContent);
 });

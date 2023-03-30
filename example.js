@@ -1,9 +1,9 @@
 // #### Import
 // remark-usage-ignore-next
 import stubbedFs from 'mock-fs';
-import fs from 'fs';
-import remark from 'remark';
-import remarkRemoveGreenkeeperBadge from './lib/index.cjs';
+import fs from 'node:fs';
+import {remark} from 'remark';
+import remarkRemoveGreenkeeperBadge from './lib/index.js';
 
 // remark-usage-ignore-next
 stubbedFs();
