@@ -51,7 +51,7 @@
   "dependencies": {
     "mdast-util-definitions": "^4.0.0",
     "unist-util-remove": "^2.0.0",
-    "unist-util-visit": "^2.0.2"
+    "unist-util-visit": "^4.0.0"
   },
   "devDependencies": {
     "@babel/register": "7.21.0",
