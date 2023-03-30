@@ -45,7 +45,8 @@
     "lib/"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "dependencies": {
     "mdast-util-definitions": "^4.0.0",
