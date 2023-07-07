@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "mdast-util-definitions": "^5.1.2",
-    "unist-util-remove": "^3.1.1",
+    "unist-util-remove": "^4.0.0",
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
