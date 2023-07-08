@@ -50,7 +50,7 @@
     "provenance": true
   },
   "dependencies": {
-    "mdast-util-definitions": "^5.1.2",
+    "mdast-util-definitions": "^6.0.0",
     "unist-util-remove": "^4.0.0",
     "unist-util-visit": "^5.0.0"
   },
