@@ -69,7 +69,7 @@
     "gherkin-lint": "4.2.4",
     "husky": "9.1.7",
     "jest-when": "4.0.3",
-    "lockfile-lint": "5.0.0",
+    "lockfile-lint": "5.0.1",
     "mock-fs": "5.5.0",
     "npm-run-all2": "9.0.2",
     "remark": "15.0.1",
